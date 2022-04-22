@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya&family=Alegreya+Sans&family=Merriweather&family=Nunito&display=swap');
+
+html {
+  font-family: 'Alegreya Sans', sans-serif;
+}
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+
+  width: 100%;
+  max-width: 1176px;
+}
+
+.pageFixer {
+  padding-top: var(--nav-height);
+
+  display: flex;
+  flex-direction: column;
+}
+
+.upperLevel {
+  position: relative;
+  z-index: 10;
+}
+
+a {
+  color: var(--bg-darkest-color);
+  text-decoration: none;
+}
+
+/*  Typography */
+
+h1 {
+  font-size: var(--size-l-5);
+}
+
+h2 {
+  font-size: var(--size-l-4);
+}
+
+h3 {
+  font-size: var(--size-l-3);
+}
+
+h4 {
+  font-size: var(--size-l-2);
+}
+
+h5 {
+  font-size: var(--size-l-1);
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+.large {
+  font-size: var(--size-l-1);
+}
+
+.larger {
+  font-size: var(--size-l-2);
+}
+
+.largest {
+  font-size: var(--size-l-3);
+}
+
+small,
+.small {
+  font-size: var(--size-s-1);
+}
+
+.smaller {
+  font-size: var(--size-s-2);
+}
+
+.smallest {
+  font-size: var(--size-s-3);
+}

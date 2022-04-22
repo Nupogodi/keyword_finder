@@ -1,0 +1,86 @@
+.logo {
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.svgLogo {
+}
+
+.flexContainer {
+  display: flex;
+  min-height: inherit;
+  align-items: center;
+}
+
+/*  Navbar */
+.nav {
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  padding: 0.5rem;
+
+  color: var(--text1);
+  box-shadow: var(--box-shadow);
+}
+
+
+.navList {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  list-style: none;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 60px;
+  min-height: inherit;
+
+  border-bottom: 2px solid transparent;
+
+  transition: border 0.25s ease-out;
+}
+
+.navItem .link {
+}
+
+.navItem:hover {
+  /* border-bottom: 2px solid var(--main-accent-color-dark); */
+}
+
+.btnOutline {
+  color: var(--secondary-accent-color-light);
+}
+
+.mobileOnly {
+  display: none;
+}
+
+/* Night Mode */
+
+.controls {
+  border: 1px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.input {
+}
+
+.label {
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 13px;
+  padding-left: 15px;
+  padding-bottom: 10px;
+  color: rgba(255, 255, 255, 0.7);
+  display: block;
+}
