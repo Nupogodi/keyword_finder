@@ -26,10 +26,12 @@
 
   /* border: 1px solid purple; */
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .form {
-  min-height: 100%;
+  flex: 1;
 
   display: flex;
 }
@@ -45,7 +47,4 @@
 
 .text-area:focus {
   outline: 2px solid var(--accent-color);
-}
-
-.results {
 }

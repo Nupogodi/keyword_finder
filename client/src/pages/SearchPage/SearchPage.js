@@ -1,39 +1,57 @@
 import React, { useState, useEffect } from 'react';
 
+// Utilities
+import { convertToArray, countEntries, sortByCount } from 'utils/calculations';
+
 // Components
 import Container from 'components/wrappers/Container/Container';
-import Pictograph from './components/Pictograph/Pictograph';
+import DisplayPanel from './components/DisplayPanel/DisplayPanel';
+import Sidebar from './components/Sidebar/Sidebar';
+import Controls from './components/Controls/Controls';
+
 // Styles
 import styles from './SearchPage.module.css';
 
+const KEYWORD_EXCEPTIONS = [
+  'be',
+  'a',
+  'to',
+  'we',
+  'are',
+  'and',
+  'by',
+  'for',
+  'ooo',
+  'of',
+  '000',
+  'with',
+];
+
 const SearchPage = () => {
   const [searchContent, setSearchContent] = useState('');
+  const [searchResult, setSearchResult] = useState([]);
   useEffect(() => {
-    const calculate = (string) => {
-      // Remove all non letter symbols and create a clean, sorted array of words
-      const cleanArr = string
-        .replace(/[\W_]+/g, ' ')
-        .split(' ')
-        .sort();
+    const cleanArr = convertToArray(searchContent);
 
-      console.log(cleanArr);
-    };
+    const dataList = countEntries(cleanArr, KEYWORD_EXCEPTIONS);
 
-    calculate(searchContent);
+    const sortedDataList = sortByCount(dataList);
+
+    setSearchResult(sortedDataList);
+
+    console.log(sortedDataList);
   }, [searchContent]);
 
   const handleChange = (e) => {
     setSearchContent(e.target.value);
-
-    console.log(searchContent);
   };
 
   return (
     <div className={styles['search-page']}>
-      <Container className={styles['container']}>
-        <section className={styles['section']}>
-          <form className={styles['form']}>
-            {/* <h3 className={styles['heading']}>Enter Text </h3> */}
+      <Container className={styles.container}>
+        <Sidebar />
+        <section className={styles.section}>
+          <form className={styles.form}>
             <textarea
               placeholder='Enter Text'
               onChange={handleChange}
@@ -41,9 +59,10 @@ const SearchPage = () => {
               className={`${styles['text-area']}`}
             />
           </form>
+          <Controls />
         </section>
-        <section className={`${styles['section']} ${styles['results']}`}>
-          <Pictograph />
+        <section className={`${styles.section} ${styles.results}`}>
+          <DisplayPanel searchResult={searchResult} />
         </section>
       </Container>
     </div>

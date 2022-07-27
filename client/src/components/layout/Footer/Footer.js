@@ -7,9 +7,16 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
       <p>
-        Made with <span className={styles.red}>❤</span> by Alex Sherbin
+        Made with
+        {' '}
+        <span className={styles.red}>❤</span>
+        {' '}
+        by Alex Sherbin
       </p>
-      <p>&#169; {currentYear}</p>
+      <p>
+        &#169;
+        {currentYear}
+      </p>
     </footer>
   );
 };

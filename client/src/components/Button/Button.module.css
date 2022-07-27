@@ -29,7 +29,7 @@
 
   font-weight: bold;
   text-transform: uppercase;
-
+  
   transition: background-color 0.4s ease-in-out;
 }
 
@@ -39,20 +39,8 @@
 }
 
 /* Btn Styles */
-.outlineLight {
-}
-
-.outlineDark {
-}
-
-.fillLight {
-}
-
-.fillDark {
+.dark {
 }
 
 .light {
-}
-
-.dark {
 }

@@ -5,7 +5,6 @@ import btnStyles from './Button.module.css';
 
 const Button = ({
   btnType = 'button',
-  text,
   btnStyle = 'outline',
   btnColor = 'light',
   OnClick,
@@ -13,12 +12,11 @@ const Button = ({
   children,
 }) => (
   <button
-    value={text}
     type={btnType}
     onClick={OnClick}
-    className={`${btnStyles[btnStyle]} ${btnStyles[btnColor]} ${btnStyles.btn} ${className}`}
+    className={`${btnStyles[btnStyle]}  ${btnStyles.btn} ${className}`}
   >
-    {children} {text}
+    {children}
   </button>
 );
 

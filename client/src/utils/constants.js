@@ -97,15 +97,8 @@ export const ICON_TYPES = {
 };
 
 export const BTN_STYLES = {
-  outlineDark: 'outlineDark',
-  outlineLight: 'outlineLight',
-  fillLight: 'fillLight',
-  fillDark: 'fillDark',
-};
-
-export const BTN_COLORS = {
-  light: 'light',
   dark: 'dark',
+  light: 'light',
 };
 
 export const BTN_TYPES = {
