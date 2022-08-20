@@ -4,6 +4,9 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 // Constants
 import { ROUTES } from 'utils/constants';
 
+// Context
+import SearchState from 'context/SearchState';
+
 // Pages
 import LandingPage from 'pages/LandingPage/LandingPage';
 import SearchPage from 'pages/SearchPage/SearchPage';
@@ -17,20 +20,19 @@ import styles from './App.module.css';
 import 'assets/styles/main.css';
 
 const App = () => (
-  <div className={styles.App}>
+  <div className={styles.app}>
     <BrowserRouter>
-      <nav className={styles.nav}>
-        <Navigation />
-      </nav>
-      <main className={`${styles.content}`}>
-        <Routes>
-          <Route exact path={ROUTES.home.url} element={<LandingPage />} />
-          <Route exact path={ROUTES.search.url} element={<SearchPage />} />
-        </Routes>
-      </main>
-      <footer className={styles.footer}>
-        <Footer />
-      </footer>
+      <Navigation />
+      <SearchState>
+        <div className={styles.content}>
+          <Routes>
+            <Route exact path={ROUTES.home.url} element={<LandingPage />} />
+            <Route exact path={ROUTES.search.url} element={<SearchPage />} />
+          </Routes>
+        </div>
+      </SearchState>
+
+      <Footer />
     </BrowserRouter>
   </div>
 );

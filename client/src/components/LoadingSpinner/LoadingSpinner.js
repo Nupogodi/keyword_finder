@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Constants
-import { ICON_TYPES } from 'util/constants';
+import { ICON_TYPES } from 'utils/constants';
 
 //  Components
 import Icon from 'components/Icon/Icon';
@@ -11,7 +11,9 @@ import styles from './LoadingSpinner.module.css';
 
 const LoadingSpinner = ({ full }) => (
   <Icon
-    className={`${full ? `${styles.fullPageSpinner}` : `${styles.spinner}`}`}
+    className={`${
+      full ? `${styles['full-page-spinner']}` : `${styles.spinner}`
+    }`}
     iconType={ICON_TYPES.loadingSpinner}
   />
   // <div>lel</div>

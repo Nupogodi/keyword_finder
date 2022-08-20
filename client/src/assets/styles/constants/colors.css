@@ -1,0 +1,28 @@
+:root {
+  /* Colors */
+
+  --clr-green-400: #2a9d8f;
+  --clr-green-500: #264653;
+
+  --clr-yellow-400: #e9c46a;
+
+  --clr-white-400: #fff;
+  --clr-white-500: #f2e9e4;
+
+  --clr-blue-800: #22223b;
+
+  --clr-primary: var(--clr-green-400);
+  --clr-secondary: var(--clr-green-500);
+  --clr-accent: var(--clr-yellow-400);
+
+  --clr-text-light: var(--clr-white-500);
+  --clr-text-dark: var(--clr-blue-800);
+
+  --clr-surface-light: var(--clr-white-500);
+  --clr-surface-dark: var(--clr-blue-800);
+}
+
+html {
+  background-color: var(--clr-surface-1);
+  color: var(--clr-text-1);
+}

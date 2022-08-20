@@ -12,7 +12,7 @@ const ButtonWrapper = ({
   <button
     type={type}
     style={styles}
-    className={`${className} ${styles.defaultStyles}`}
+    className={`${className} ${styles['default-styles']}`}
     onClick={onClick}
   >
     {children}

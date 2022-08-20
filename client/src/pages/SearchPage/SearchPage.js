@@ -1,4 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+
+// Context
+import SearchContext from 'context/SearchContext';
 
 // Utilities
 import { convertToArray, countEntries, sortByCount } from 'utils/calculations';
@@ -7,63 +10,29 @@ import { convertToArray, countEntries, sortByCount } from 'utils/calculations';
 import Container from 'components/wrappers/Container/Container';
 import DisplayPanel from './components/DisplayPanel/DisplayPanel';
 import Sidebar from './components/Sidebar/Sidebar';
-import Controls from './components/Controls/Controls';
+import Form from './components/Form/Form';
 
 // Styles
 import styles from './SearchPage.module.css';
 
-const KEYWORD_EXCEPTIONS = [
-  'be',
-  'a',
-  'to',
-  'we',
-  'are',
-  'and',
-  'by',
-  'for',
-  'ooo',
-  'of',
-  '000',
-  'with',
-];
-
+// eslint-disable-next-line
 const SearchPage = () => {
-  const [searchContent, setSearchContent] = useState('');
-  const [searchResult, setSearchResult] = useState([]);
-  useEffect(() => {
-    const cleanArr = convertToArray(searchContent);
+  // useEffect(() => {
+  //   const cleanArr = convertToArray(searchContent);
 
-    const dataList = countEntries(cleanArr, KEYWORD_EXCEPTIONS);
+  //   const dataList = countEntries(cleanArr, KEYWORD_EXCEPTIONS);
 
-    const sortedDataList = sortByCount(dataList);
+  //   const sortedDataList = sortByCount(dataList);
 
-    setSearchResult(sortedDataList);
-
-    console.log(sortedDataList);
-  }, [searchContent]);
-
-  const handleChange = (e) => {
-    setSearchContent(e.target.value);
-  };
+  //   setSearchResult(sortedDataList);
+  // }, [searchContent]);
 
   return (
-    <div className={styles['search-page']}>
+    <div className={styles.searchPage}>
       <Container className={styles.container}>
         <Sidebar />
-        <section className={styles.section}>
-          <form className={styles.form}>
-            <textarea
-              placeholder='Enter Text'
-              onChange={handleChange}
-              value={searchContent}
-              className={`${styles['text-area']}`}
-            />
-          </form>
-          <Controls />
-        </section>
-        <section className={`${styles.section} ${styles.results}`}>
-          <DisplayPanel searchResult={searchResult} />
-        </section>
+        <Form />
+        <DisplayPanel />
       </Container>
     </div>
   );

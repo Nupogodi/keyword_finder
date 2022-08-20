@@ -1,4 +1,4 @@
-.fullPageSpinner {
+.full-page-spinner {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -22,7 +22,7 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .fullPageSpinner {
+  .full-page-spinner {
     animation: spinner 1s infinite linear;
   }
 

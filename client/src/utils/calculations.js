@@ -1,7 +1,9 @@
-export const convertToArray = (string) => string
-  .replace(/[\W_]+/g, ' ')
-  .split(' ')
-  .sort();
+export const convertToArray = (string) =>
+  // eslint-disable-next-line
+  string
+    .replace(/[\W_]+/g, ' ')
+    .split(' ')
+    .sort();
 
 export const countEntries = (array, exceptions) => {
   const map = {};
@@ -9,8 +11,9 @@ export const countEntries = (array, exceptions) => {
   for (let i = 0; i < array.length; i += 1) {
     const item = array[i];
     if (
-      !exceptions.includes(item)
-      && !exceptions.includes(item.toLowerCase())
+      // eslint-disable-next-line
+      !exceptions.includes(item) &&
+      !exceptions.includes(item.toLowerCase())
     ) {
       map[item] = map[item] + 1 || 1;
     }
@@ -23,17 +26,6 @@ export const countEntries = (array, exceptions) => {
 };
 
 export const sortByCount = (arr) => {
-  // const order = [];
-  // const res = {};
-  // // eslint-disable-next-line
-  // Object.keys(obj).forEach((key) => {
-  //   return (order[obj[key].count - 1] = key);
-  // });
-  // order.forEach((key) => {
-  //   res[key] = obj[key];
-  // });
-  // return res;
-
   const res = [...arr];
 
   for (let i = 0; i < res.length; i += 1) {
@@ -49,7 +41,5 @@ export const sortByCount = (arr) => {
       }
     }
   }
-  // Print the sorted array
   return res;
-  // Object.entries(obj).map(([key, value]) => {});
 };

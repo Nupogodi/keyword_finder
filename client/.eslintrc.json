@@ -36,10 +36,10 @@
     "jsx-quotes": "off",
     "react/destructuring-assignment": "off",
     "react/button-has-type": "off",
-    "dot-notation": [1, { "allowPattern": "^[a-z]+(-[a-z]+)+$" }],
     "no-unused-vars": [1],
     "prefer-const": [1],
     "no-return-assign": [1, "except-parens"],
-    "arrow-body-style": ["error", "as-needed"]
+    "arrow-body-style": ["error", "as-needed"],
+    "dot-notation": "off"
   }
 }
