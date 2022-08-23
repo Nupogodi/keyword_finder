@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
+import { Route, Routes } from 'react-router-dom';
 
 // Constants
 import { ROUTES } from 'utils/constants';
@@ -21,19 +22,17 @@ import 'assets/styles/main.css';
 
 const App = () => (
   <div className={styles.app}>
-    <BrowserRouter>
-      <Navigation />
-      <SearchState>
-        <div className={styles.content}>
-          <Routes>
-            <Route exact path={ROUTES.home.url} element={<LandingPage />} />
-            <Route exact path={ROUTES.search.url} element={<SearchPage />} />
-          </Routes>
-        </div>
-      </SearchState>
+    <Navigation />
+    <SearchState>
+      <div className={styles.content}>
+        <Routes>
+          <Route exact path={ROUTES.home.url} element={<LandingPage />} />
+          <Route exact path={ROUTES.search.url} element={<SearchPage />} />
+        </Routes>
+      </div>
+    </SearchState>
 
-      <Footer />
-    </BrowserRouter>
+    <Footer />
   </div>
 );
 

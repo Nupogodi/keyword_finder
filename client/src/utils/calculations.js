@@ -55,15 +55,12 @@ export const generateKeywordMap = (str) => {
 
   // Turn the str into a clean array
   const cleanWordArr = convertToArray(str);
-  // console.log('clean Arr: ', cleanWordArr);
 
   // create a map of every word with its corresponding count
   const wordMap = countEntries(cleanWordArr, KEYWORD_EXCEPTIONS);
-  // console.log('wordMap: ', wordMap);
 
   // Sort the word map my the word count
   const sortedWordMap = sortByCount(wordMap);
-  // console.log('sortedWordMap: ', sortedWordMap);
 
   return sortedWordMap;
 };

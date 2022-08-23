@@ -6,7 +6,7 @@ const useOutsideClickDetector = (ref, outsideClickAction) => {
      * Alert if clicked on outside of element
      */
     const handleClickOutside = (event) => {
-      if (ref.current && !ref.current.contains(event.target)) {
+      if (!ref?.current?.contains(event.target)) {
         outsideClickAction();
       }
     };
