@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import classnames from 'classnames/bind';
 
 // Context
@@ -46,7 +46,7 @@ const Sidebar = () => {
             onClick={() => selectDocument(document.id)}
           >
             <div>
-              {index}
+              {index + 1}
               <Icon
                 iconType={ICON_TYPES.document}
                 className={styles.documentIcon}

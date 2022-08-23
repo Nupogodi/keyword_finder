@@ -14,14 +14,14 @@ html {
   max-width: 1176px;
 }
 
-.page-fixer {
+.pageFixer {
   padding-top: var(--nav-height);
 
   display: flex;
   flex-direction: column;
 }
 
-.upper-level {
+.upperLevel {
   position: relative;
   z-index: 10;
 }

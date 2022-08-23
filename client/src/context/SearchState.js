@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
-// Constants
-import { KEYWORD_EXCEPTIONS } from 'utils/constants';
-
 // Utilities
 import { v4 as uuidv4 } from 'uuid';
-import { convertToArray, countEntries, sortByCount } from 'utils/calculations';
+import { generateKeywordMap } from 'utils/calculations';
 
 // Context
 import SearchContext from './SearchContext';
@@ -14,24 +11,29 @@ const SearchState = ({ children }) => {
   const [searchContent, setSearchContent] = useState('');
   const [documents, setDocuments] = useState([]);
   const [searchResult, setSearchResult] = useState([]);
-
   const [selectedDocumentID, setSelectedDocumentID] = useState(null);
   const [isModifying, setIsModifying] = useState(false);
 
+  useEffect(() => {
+    if (documents.length === 0) return;
+
+    const consolidateDocuments = () => {
+      const consolidatedStr = documents
+        .map((document) => document.content)
+        .join(' ');
+
+      const keywordMap = generateKeywordMap(consolidatedStr);
+
+      setSearchResult(keywordMap);
+    };
+
+    consolidateDocuments();
+  }, [documents]);
+
   const addDocument = () => {
-    // Turn the searchContent into a clean array
-    const cleanWordArr = convertToArray(searchContent);
-
-    console.log('clean Arr: ', cleanWordArr);
-
-    // create a map of every word with its corresponding count
-    const wordMap = countEntries(cleanWordArr, KEYWORD_EXCEPTIONS);
-    console.log('wordMap: ', wordMap);
-
-    // Sort the word map my the word count
-    const sortedWordMap = sortByCount(wordMap);
-    console.log('sortedWordMap: ', sortedWordMap);
-
+    if (searchContent === '') {
+      return;
+    }
     const newDocument = {
       id: uuidv4(),
       content: searchContent,
@@ -40,10 +42,6 @@ const SearchState = ({ children }) => {
     setDocuments([...documents, newDocument]);
 
     setSearchContent('');
-  };
-
-  const removeDocument = (id) => {
-    console.log('Item Removed');
   };
 
   const selectDocument = (id) => {
@@ -62,23 +60,29 @@ const SearchState = ({ children }) => {
 
   // Modify Document Function
   const modifyDocument = () => {
-    const modifiedDocument = documents.find(
-      // eslint-disable-next-line
-      (document) => document.id === selectedDocumentID
-    );
-
-    modifiedDocument.content = searchContent;
-
     const modifiedList = documents.map((document) => {
-      if (document.id === modifiedDocument.id) {
-        console.log('MATCH!!! RETURNING selectedDocument');
-        return modifiedDocument;
+      if (document.id === selectedDocumentID) {
+        return {
+          ...document,
+          content: searchContent,
+          keywordMap: generateKeywordMap(searchContent),
+        };
       }
 
       return document;
     });
 
     setDocuments(modifiedList);
+    deselectDocument();
+  };
+
+  const removeDocument = () => {
+    const filteredList = documents.filter(
+      // eslint-disable-next-line
+      (document) => document.id !== selectedDocumentID
+    );
+
+    setDocuments(filteredList);
     deselectDocument();
   };
 

@@ -14,6 +14,7 @@ module.exports = {
         ignoreFontFamilies: ['Arial', 'Officina Serif', 'Roboto'],
       },
     ],
+    'selector-class-pattern': ['^[a-z][a-zA-Z0-9]+$'],
     'declaration-block-single-line-max-declarations': 5,
     'no-descending-specificity': null,
     'at-rule-no-unknown': [true, { ignoreAtRules: ['define-mixin', 'mixin'] }],

@@ -3,5 +3,5 @@
 @import "~sanitize.css/typography.css";
 @import "./base.css";
 @import "./variables.css";
-@import './constants/colors.css';
-@import './constants/typography.css';
+@import "./constants/colors.css";
+@import "./constants/typography.css";

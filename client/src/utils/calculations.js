@@ -1,3 +1,6 @@
+// Constants
+import { KEYWORD_EXCEPTIONS } from 'utils/constants';
+
 export const convertToArray = (string) =>
   // eslint-disable-next-line
   string
@@ -5,7 +8,7 @@ export const convertToArray = (string) =>
     .split(' ')
     .sort();
 
-export const countEntries = (array, exceptions) => {
+export const countEntries = (array, exceptions = []) => {
   const map = {};
 
   for (let i = 0; i < array.length; i += 1) {
@@ -41,5 +44,26 @@ export const sortByCount = (arr) => {
       }
     }
   }
+
   return res;
+};
+
+export const generateKeywordMap = (str) => {
+  if (str === '') {
+    return [];
+  }
+
+  // Turn the str into a clean array
+  const cleanWordArr = convertToArray(str);
+  // console.log('clean Arr: ', cleanWordArr);
+
+  // create a map of every word with its corresponding count
+  const wordMap = countEntries(cleanWordArr, KEYWORD_EXCEPTIONS);
+  // console.log('wordMap: ', wordMap);
+
+  // Sort the word map my the word count
+  const sortedWordMap = sortByCount(wordMap);
+  // console.log('sortedWordMap: ', sortedWordMap);
+
+  return sortedWordMap;
 };

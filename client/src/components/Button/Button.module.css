@@ -11,16 +11,17 @@
   font: inherit;
   font-family: inherit;
   font-weight: bold;
-  text-transform: uppercase;
   letter-spacing: 1px;
+  text-transform: uppercase;
 
-  border: 3px solid var(--clr-primary);
-  border-radius: 15px;
-
-  background-color: var(--clr-surface-light);
   color: var(--clr-text-dark);
+  border: none;
+  border-radius: 15px;
+  background-color: var(--clr-surface-light);
 
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out,
+  transition:
+    background-color 0.2s ease-in-out,
+    color 0.2s ease-in-out,
     border 0.2s ease-in-out;
 
   cursor: pointer;
@@ -29,8 +30,8 @@
 
 .btn:hover {
   color: var(--clr-secondary);
-  background-color: var(--clr-surface-light);
   border: 3px solid var(--clr-green-400);
+  background-color: var(--clr-surface-light);
 }
 
 .btn:hover > * {
@@ -74,4 +75,10 @@
 
 .transparent:hover {
   background-color: transparent;
+}
+
+.isWrapper {
+  padding: 0;
+
+  border: none;
 }

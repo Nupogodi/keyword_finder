@@ -5,7 +5,7 @@ import {
   MdOutlineCancel,
   MdOutlineNightlight,
 } from 'react-icons/md';
-import { RiMusicLine, RiAlbumLine } from 'react-icons/ri';
+import { RiMusicLine, RiAlbumLine, RiDeleteBin5Line } from 'react-icons/ri';
 import { BsMusicNoteList, BsPersonCircle } from 'react-icons/bs';
 import {
   AiOutlinePlusCircle,
@@ -77,6 +77,7 @@ export const ICONS = {
   sun: WiDaySunny,
   loadingSpinner: FaSpinner,
   document: FcDocument,
+  delete: RiDeleteBin5Line,
 };
 
 export const ICON_TYPES = {
@@ -97,6 +98,7 @@ export const ICON_TYPES = {
   moon: 'moon',
   sun: 'sun',
   document: 'document',
+  delete: 'delete',
 };
 
 export const BTN_STYLES = {

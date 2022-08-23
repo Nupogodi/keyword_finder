@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 
 // Context
 import SearchContext from 'context/SearchContext';
@@ -11,17 +11,17 @@ import styles from './DisplayPanel.module.css';
 
 const SEARCH_LIMIT = 10;
 
-const DisplayPanel = ({ searchResult = [] }) => {
+const DisplayPanel = () => {
   const searchContext = useContext(SearchContext);
 
-  const { documents } = searchContext;
+  const { searchResult } = searchContext;
 
   // eslint-disable-next-line
   const [displayLimit, setDisplayLimit] = useState(SEARCH_LIMIT);
   return (
     <div className={styles.displayPanel}>
       <h2>Results</h2>
-      {/* {searchResult.map((keywordObj, index) => {
+      {searchResult.map((keywordObj, index) => {
         if (index < displayLimit) {
           return (
             <KeywordItem
@@ -34,7 +34,7 @@ const DisplayPanel = ({ searchResult = [] }) => {
         }
 
         return null;
-      })} */}
+      })}
     </div>
   );
 };

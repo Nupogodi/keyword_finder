@@ -1,10 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
-
-// Context
-import SearchContext from 'context/SearchContext';
-
-// Utilities
-import { convertToArray, countEntries, sortByCount } from 'utils/calculations';
+import React from 'react';
 
 // Components
 import Container from 'components/wrappers/Container/Container';
@@ -17,16 +11,6 @@ import styles from './SearchPage.module.css';
 
 // eslint-disable-next-line
 const SearchPage = () => {
-  // useEffect(() => {
-  //   const cleanArr = convertToArray(searchContent);
-
-  //   const dataList = countEntries(cleanArr, KEYWORD_EXCEPTIONS);
-
-  //   const sortedDataList = sortByCount(dataList);
-
-  //   setSearchResult(sortedDataList);
-  // }, [searchContent]);
-
   return (
     <div className={styles.searchPage}>
       <Container className={styles.container}>

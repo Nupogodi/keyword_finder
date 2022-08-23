@@ -4,10 +4,11 @@ import React, { useContext } from 'react';
 import SearchContext from 'context/SearchContext';
 
 // Constants
-import { BTN_TYPES, BTN_STYLES } from 'utils/constants';
+import { BTN_TYPES, BTN_STYLES, ICON_TYPES } from 'utils/constants';
 
 // Components
 import Button from 'components/Button/Button';
+import Icon from 'components/Icon/Icon';
 
 // Styles
 import styles from './Form.module.css';
@@ -23,6 +24,7 @@ const Form = () => {
     removeDocument,
     modifyDocument,
     deselectDocument,
+    selectedDocumentID,
   } = searchContext;
 
   const handleChange = (e) => {
@@ -40,20 +42,22 @@ const Form = () => {
       <div className={styles.formControls}>
         {isModifying ? (
           <>
-            <Button
-              onClick={deselectDocument}
-              btnType={BTN_TYPES.button}
-              btnStyle={BTN_STYLES.dark}
-              className={styles.button}
-            >
+            <div className={styles.btnWrapper}>
+              <Button
+                isWrapper
+                onClick={() => removeDocument(selectedDocumentID)}
+                btnType={BTN_TYPES.button}
+              >
+                <Icon
+                  className={styles.deleteIcon}
+                  iconType={ICON_TYPES.delete}
+                />
+              </Button>
+            </div>
+            <Button onClick={deselectDocument} btnType={BTN_TYPES.button}>
               Cancel
             </Button>
-            <Button
-              onClick={modifyDocument}
-              btnType={BTN_TYPES.button}
-              btnStyle={BTN_STYLES.dark}
-              className={styles.button}
-            >
+            <Button onClick={modifyDocument} btnType={BTN_TYPES.button}>
               Save
             </Button>
           </>

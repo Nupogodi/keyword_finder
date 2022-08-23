@@ -11,9 +11,7 @@ import styles from './LoadingSpinner.module.css';
 
 const LoadingSpinner = ({ full }) => (
   <Icon
-    className={`${
-      full ? `${styles['full-page-spinner']}` : `${styles.spinner}`
-    }`}
+    className={`${full ? `${styles.fullPageSpinner}` : `${styles.spinner}`}`}
     iconType={ICON_TYPES.loadingSpinner}
   />
   // <div>lel</div>
