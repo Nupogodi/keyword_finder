@@ -1,0 +1,29 @@
+{
+  "name": "keyword_finder",
+  "version": "1.0.0",
+  "description": "A tool to quickly find the most recurring keywords.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "cd packages/client && husky install client/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nupogodi/keyword_finder.git"
+  },
+  "keywords": [
+    "keywords",
+    "keyword",
+    "utility",
+    "tool"
+  ],
+  "author": "Alex Sherbin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nupogodi/keyword_finder/issues"
+  },
+  "homepage": "https://github.com/Nupogodi/keyword_finder#readme",
+  "devDependencies": {
+    "husky": "^7.0.0"
+  }
+}

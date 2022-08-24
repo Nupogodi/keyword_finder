@@ -1,0 +1,20 @@
+.sidebar {
+  display: flex;
+  align-items: center;
+
+  border: 2px solid royalblue;
+}
+
+.document {
+  border: 3px solid transparent;
+}
+
+.document.active {
+  color: #fff;
+  border: 3px solid royalblue;
+  background-color: salmon;
+}
+
+.documentIcon {
+  font-size: 2.5rem;
+}

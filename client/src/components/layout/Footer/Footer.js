@@ -5,11 +5,18 @@ import styles from './Footer.module.css';
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
-    <footer className={styles.footer}>
+    <footer className={`${styles.footer} surface1`}>
       <p>
-        Made with <span className={styles.red}>❤</span> by Alex Sherbin
+        Made with
+        {' '}
+        <span className={styles.red}>❤</span>
+        {' '}
+        by Alex Sherbin
       </p>
-      <p>&#169; {currentYear}</p>
+      <p>
+        &#169;
+        {currentYear}
+      </p>
     </footer>
   );
 };
